@@ -57,6 +57,7 @@
 # Em cada botão precisa mostrar um tipo de grafico
 # Mostre a estatistica também
 
+import statistics
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
@@ -66,11 +67,16 @@ from tkinter import Tk
 from matplotlib.backends.backend_tkagg import FigureCanvasTkAgg
 from tkinter import *
 
+
+
+
 def selecionar():
     Tk().withdraw()
     caminho = askopenfilename(
     filetypes = (("Arquivo CSV","*.csv"),),
     title = "SELECIONAR ARQUIVO CSV"
+
+   
 
     )
     return caminho
@@ -90,8 +96,12 @@ def data_plot():
      canvas.draw()
      canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
 
+     
+
     else:
         print('erro')
+
+    
 def data_bar():
     caminho = selecionar()
 
@@ -106,7 +116,7 @@ def data_bar():
      canvas = FigureCanvasTkAgg(fig,master=janela)
      canvas.draw()
      canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
-
+    
     else:
         print('erro')
 def data_pie():
@@ -119,13 +129,10 @@ def data_pie():
      colors = plt.get_cmap('Blues')(np.linspace(0.2, 0.7, len(dados)))
      vendas = dados['vendas'].to_list()
      vendedor = dados['vendedor'].to_list()
-     
-     
+          
      fig, grafico = plt.subplots()
-     grafico.pie(vendas,labels=vendedor, colors=colors, radius=8, center=(8, 8),
-                 wedgeprops={"linewidth": 1, "edgecolor": "white"}, frame=True)
-       
-     
+     grafico.pie(vendas,labels=vendedor, colors=colors)
+            
      canvas = FigureCanvasTkAgg(fig,master=janela)
      canvas.draw()
      canvas.get_tk_widget().pack(side=tk.RIGHT, fill=tk.BOTH, expand=True)
