@@ -29,7 +29,7 @@ def mostrar_analise():
 
     fig = Figure(figsize=(6, 4), dpi=100)
     ax = fig.add_subplot(111)
-    ax.set_title(f'Cargos e PIB - {pib_selecionada}')
+    ax.set_title(f'Estados e PIB - {pib_selecionada}')
     ax.set_xlabel('Estados')
     ax.set_ylabel('PIB')
     estados=['SP','RS','BA','PE','ES','MT','MS']
@@ -41,7 +41,7 @@ def mostrar_analise():
     canvas.get_tk_widget().pack(side=tk.LEFT)
 
 root = tk.Tk()
-root.title('Cargos e Salários')
+root.title('Estados e Salários')
 
 pib_var = tk.StringVar(value='PIB')
 pib_opcoes = ['PIB']
