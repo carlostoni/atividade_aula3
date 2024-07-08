@@ -33,7 +33,7 @@ def mostrar_analise():
     ax.set_xlabel('Estados')
     ax.set_ylabel('PIB')
     estados=['SP','RS','BA','PE','ES','MT','MS']
-    ax.plot(estados, dado, marker='o')
+    ax.bar(estados, dado)
     ax.grid(True)
 
     canvas = FigureCanvasTkAgg(fig, master=canvas_frame)
